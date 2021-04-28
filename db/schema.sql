@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS field_db;
+
+CREATE DATABASE field_db;
