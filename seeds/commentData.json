@@ -1,0 +1,37 @@
+[
+    {
+        "content": "I am in! What time should we shoot for?",
+        "post_id": 1,
+        "user_id": 2
+    },
+    {
+        "content": "I am free at 6PM.",
+        "post_id": 1,
+        "user_id": 3
+    },
+    {
+        "content": "Would I be allowed if I brought beer?",
+        "post_id": 1,
+        "user_id": 4
+    },
+    {
+        "content": "Depends on the beer.",
+        "post_id": 1,
+        "user_id": 1
+    },
+    {
+        "content": "You read my mind! Count me in.",
+        "post_id": 2,
+        "user_id": 2
+    },
+    {
+        "content": "I'll bring the wine!",
+        "post_id": 2,
+        "user_id": 1
+    },
+    {
+        "content": "Let's play baseketball too.",
+        "post_id": 2,
+        "user_id": 4
+    }
+]
