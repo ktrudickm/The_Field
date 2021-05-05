@@ -2,12 +2,16 @@ const router = require('express').Router();
 const { Post, User, Comment, Category, Location } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req,res) => {
-    try{
-        const//get data needed for homepage
-    } catch (err) {
-        res.status(500).json(err);
-    }
+// router.get('/', async (req,res) => {
+//     try{
+//         const//get data needed for homepage
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
+router.get('/login', (req, res) => {
+    res.render('login', {logged_in: req.session.logged_in}) 
 });
 
 //login (which might be home page ('/'))
@@ -18,9 +22,15 @@ router.get('/location', withAuth, async (req,res) => {
         const locationData = await Location.findAll({
             attributes: ['id', 'name',],
         });
+        const sportData = await Category.findAll({
+            attributes: ['id', 'name'],
+        });
+        const sports = sportData.map((sport) => sport.get({ plain: true }));
         const locations = locationData.map((location) => location.get({ plain: true }));
-        res.render('locations', {
+        console.log("\n", sports, locations);
+        res.render('location', {
             locations,
+            sports,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
@@ -35,7 +45,7 @@ router.get('/sport', withAuth, async (req,res) => {
             attributes: ['id', 'name'],
         });
         const sports = sportData.map((sport) => sport.get({ plain: true }));
-        res.render('sports', {
+        res.render('sport', {
             sports,
             logged_in: req.session.logged_in,
         })
@@ -94,3 +104,5 @@ router.get('/', withAuth, async (req,res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;

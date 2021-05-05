@@ -1,0 +1,14 @@
+<div class="text-center">
+  <h2>{{title}}</h2>
+  <p>{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date createdAt}}</p>
+  <div>
+    <button class="btn btn-primary">Comment on this post!</button>
+  </div>
+  <ul>
+    {{#each comments as |comment|}}
+    <h2>{{comment.content}}</h2>
+    <h2>{{user.name}}</h2>
+    {{/each}}
+  </ul>
+</div>
