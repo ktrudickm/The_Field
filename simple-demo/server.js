@@ -22,8 +22,11 @@ app.use(express.static('/@glidejs/glide'));
 //route 
 app.get('/', (req, res) => {
     //res.send('Done yet?'); 
-    res.render('main', {layout: 'index'}); 
-    //res.render('main'); 
+    //res.render('main', {layout: 'index'}); 
+    //res.render('main');
+    //res.render('login', {layout: 'index'}); 
+    //res.render('content', {layout: 'index'});
+    res.render('thread', {layout: 'index'})  
 }); 
 //listen 
 app.listen(PORT, () => console.log(`App listening on ${PORT}`)); 
