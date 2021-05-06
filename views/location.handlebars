@@ -1,13 +1,14 @@
-
-{{#each locations as |location|}}
 <div>
-  <h2>{{location.name}}</h2>
-</div>
-{{/each}}
-
-{{#each sports as |sport|}}
+  {{#each locations as |location|}}
   <div>
-    <a href="/sport">{{sport.name}}</a>
+    <h2>{{location.name}}</h2>
   </div>
-{{/each}}
+
+  {{#each sports as |sport|}}
+    <div>
+      <a href="/sport">{{name}}</a>
+    </div>
+  {{/each}}
+  {{/each}}
+</div>
 
