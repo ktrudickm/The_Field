@@ -1,0 +1,63 @@
+/*hero img*/
+.hero {
+    background-image: url("/images/Football\ field.png"); 
+    background-repeat: no-repeat; 
+    background-color: green; 
+    height: 300px; 
+    background-position: center; 
+    background-size: cover; 
+}
+/*bind to*/
+.logo {
+    width: 150px; 
+    height: 150px; 
+    position: relative; 
+    animation-name: logo; 
+    animation-duration: 4s; 
+    padding-top: 50px;
+}
+/*animation code*/
+@keyframes logo {
+    0% {left: 0px; top: 150px; }
+    25% {left: 400px; top: 150px;}
+    50% {left: 800px; top: 150px;}
+    100% {left: 400px; top: 150px; }
+}
+/*needs a centered start position and responsive stuff, 
+perhaps @media to adjust the animation?*/
+
+/*carousel*/
+.container {
+    height: 50vh; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px; 
+}
+html, body {
+    height: 100%; 
+    background-color: black;
+}
+/*location selection*/
+.location {
+    height: 10vh; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px; 
+    color: white; 
+}
+.whereabouts {
+    list-style-type: none;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 10px;
+    margin: 5px; 
+    flex-wrap: wrap;  
+}
+.city { 
+    padding: 20px; 
+}
