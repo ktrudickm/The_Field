@@ -39,7 +39,6 @@ router.get('/sport/:id', withAuth, async (req,res) => {
         });
         const sports = sportData.map((sport) => sport.get({ plain: true }));
         const category_id = req.params.id;
-        console.log('\n sports /n',sports, '\n')
         res.render('sport', {
             sports,
             category_id,

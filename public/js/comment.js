@@ -1,6 +1,5 @@
 const newComment = async (event) => {
     event.preventDefault();
-    console.log('start posting comment')
     const content = document.querySelector('.thread-textarea').value.trim();
     const addForm = document.querySelector('.thread-btn');
     const post_id = addForm.dataset.postid;
