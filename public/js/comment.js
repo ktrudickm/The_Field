@@ -3,7 +3,7 @@ const newComment = async (event) => {
     console.log('start posting comment')
     const content = document.querySelector('.thread-textarea').value.trim();
     const addForm = document.querySelector('.thread-btn');
-    const post_id = addForm.data("postid");
+    const post_id = addForm.dataset.postid;
     console.log('form button post_id', post_id);
     if (content && post_id) {
       const response = await fetch(`/api/comments/`, {
