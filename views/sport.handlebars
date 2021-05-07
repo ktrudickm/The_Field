@@ -1,14 +1,40 @@
-<div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date createdAt}}</p>
-  <div>
-    <button class="btn btn-primary">Comment on this post!</button>
-  </div>
-  <ul>
-    {{#each comments as |comment|}}
-    <h2>{{comment.content}}</h2>
-    <h2>{{user.name}}</h2>
-    {{/each}}
-  </ul>
+<header class="content-hero">
+    <img src="/images/TheFieldlogo.png" alt="The Field Logo">
+</header>
+
+
+<div class='content-container'>
+
+    <form id='post-and-comment'>
+
+        <div class='main-post'>
+            <textarea class='post'
+            placeholder='Add your post here...'>
+            </textarea>
+        </div>
+
+        <button type='submit' class='add-post'>Add Post</button> 
+        <button type='submit' class='del-post'>Delete Post</button>
+
+    </form>
 </div>
+
+
+{{#each sports as |sport|}}
+    <div class="thread-main">
+        <div class="thread-header">{{sport.title}}</div>
+        <div class="thread-content">{{sport.description}}</div>
+        <p class="thread-user">Posted by: {{user.name}}</p>
+        <form class='thread-btn' data-postid='{{sport.id}}'>
+            <textarea class='thread-textarea' 
+            placeholder='Add comment here...'></textarea>
+            <button type="submit">add comment</button>
+        </form>
+
+        {{#each sport.comments as |comment|}}
+        <div class="thread-comments">{{comment.user.name}}: {{comment.content}}</div>
+        {{/each}}
+    </div>
+{{/each}}
+
+<script src="/js/comment.js"></script>

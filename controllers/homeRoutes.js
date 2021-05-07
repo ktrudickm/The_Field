@@ -1,50 +1,51 @@
 const router = require('express').Router();
-const { Post, User, Comment, Category, Location } = require('../models');
+const { Post, User, Comment, Category} = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/', async (req,res) => {
-//     try{
-//         const//get data needed for homepage
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
 router.get('/login', (req, res) => {
     res.render('login', {logged_in: req.session.logged_in}) 
 });
 
-//login (which might be home page ('/'))
-
-// pick location
-router.get('/location', withAuth, async (req,res) => {
-    try{
-        const locationData = await Location.findAll({
-            attributes: ['id', 'name',],
+router.get('/', withAuth, (req, res) => {
+        res.render('login', {
+        logged_in: req.session.logged_in,
         });
-        const sportData = await Category.findAll({
-            attributes: ['id', 'name'],
-        });
-        const sports = sportData.map((sport) => sport.get({ plain: true }));
-        const locations = locationData.map((location) => location.get({ plain: true }));
-        console.log("\n", sports, locations);
-        res.render('location', {
-            locations,
-            sports,
-            logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
 });
 
+router.get('/homepage', (req, res) => {
+    res.render('homepage', {
+        logged_in: req.session.logged_in}) 
+});
+
+
 // pick sport
-router.get('/sport', withAuth, async (req,res) => {
+router.get('/sport/:id', withAuth, async (req,res) => {
     try{
-        const sportData = await Category.findAll({
-            attributes: ['id', 'name'],
+        console.log('\n before sportData, req.params: ', req.params.id);
+        const sportData = await Post.findAll({
+            where: [
+                {
+                    category_id: req.params.id,
+                }
+            ],
+            attributes: ['id', 'title', 'description', 'category_id', 'user_id'],
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['name'],
+                },
+                {
+                    model: Comment,
+                    as: 'comments',
+                    attributes: ['id', 'content', 'post_id', 'user_id'],
+                    include: [User]
+                }],
         });
+        console.log('\n sportData: ', sportData);
         const sports = sportData.map((sport) => sport.get({ plain: true }));
+        console.log('\n line 34 sports: ', sports);
         res.render('sport', {
             sports,
             logged_in: req.session.logged_in,
