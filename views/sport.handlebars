@@ -7,14 +7,12 @@
 
     <form id='post-and-comment'>
 
-        <div class='main-post'>
-            <textarea class='post'
+        <div class='main-post' data-postid="{{sports.[0].category_id}}">
+            <input class='post'
             placeholder='Add your post here...'>
-            </textarea>
         </div>
 
-        <button type='submit' class='add-post'>Add Post</button> 
-        <button type='submit' class='del-post'>Delete Post</button>
+        <button type='submit' class='add-post'>Add Post</button>
 
     </form>
 </div>
@@ -38,3 +36,4 @@
 {{/each}}
 
 <script src="/js/comment.js"></script>
+<script src="/js/posts.js"></script>
