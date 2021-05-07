@@ -20,8 +20,6 @@ const newComment = async (event) => {
     };
 };
 
-
-
 document
     .querySelector('.thread-btn')
     .addEventListener('submit', newComment);
