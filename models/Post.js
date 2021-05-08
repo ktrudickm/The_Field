@@ -14,7 +14,7 @@ Post.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     description: {
         type: DataTypes.STRING,
@@ -30,7 +30,7 @@ Post.init(
     },
     location_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
         references: {
             model: 'location',
             key: 'id'

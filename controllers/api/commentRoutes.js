@@ -2,22 +2,20 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+//route to create a comment
 router.post('/', withAuth, async (req, res) => {
     try {
-      console.log('\n begin comment posting: ', req.body);
       const commentData = await Comment.create({
         ...req.body,
         user_id: req.session.user_id,
       });
-      console.log('\n after save: ', commentData);
       res.status(200).json(commentData);
     } catch (err) {
-        console.log(err);
       res.status(400).json(err);
     }
 });
 
+//route to delete a comment
 router.delete('/:id', withAuth, async (req, res) => {
     try {
       const commentData = await Comment.destroy({
@@ -38,6 +36,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     };
 });
 
+//route to edit a comment
 router.put('/:id', withAuth, async (req, res) => {
     try{
         const updatedComment = await Comment.update(
