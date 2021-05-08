@@ -20,18 +20,19 @@
 
 {{#each sports as |sport|}}
     <div class="thread-main">
-        <div class="thread-header">{{sport.title}}</div>
-        <div class="thread-content">{{sport.description}}</div>
+        <h2 class="thread-header">{{sport.title}}</h2>
         <p class="thread-user">Posted by: {{user.name}}</p>
+        <h3 class="thread-content">{{sport.description}}</h3>
         <form class='thread-btn' data-postid="{{sport.id}}">
             <textarea class='thread-textarea' 
             placeholder='Add comment here...'></textarea>
             <button type="submit">add comment</button>
         </form>
-
-        {{#each sport.comments as |comment|}}
-        <div class="thread-comments">{{comment.user.name}}: {{comment.content}}</div>
-        {{/each}}
+        <div class='comments'>
+            {{#each sport.comments as |comment|}}
+            <div class="thread-comments">{{comment.user.name}}: {{comment.content}}</div>
+            {{/each}}
+        </div>
     </div>
 {{/each}}
 

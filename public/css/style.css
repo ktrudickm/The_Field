@@ -135,11 +135,15 @@ button {
 }
 /*forum thread*/
 .thread-main {
-    height: 25vh;
     display: flex; 
     justify-content: center;
     align-items: center; 
     flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: solid 1px green;
+    height: auto;
+    border-radius: 15px;
 }
 .thread-btn {
     margin: 10px; 
@@ -149,3 +153,16 @@ button {
     width: 80%;
     margin: 10px;  
 }
+
+.post {
+    height:auto;
+}
+
+.comments {
+    padding-bottom: 40px;
+}
+
+.thread-header {
+    padding-top: 10px;
+}
+
