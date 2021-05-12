@@ -14,16 +14,18 @@ Sports Range from:
 -Tennis
 -Pool
 
-Currently only available in major Ohio Cities (Columbus, Cleveland, Dayton, Cinnicinnati, Toledo barely made the cut, every other city..... better luck next update)!
 
-## Installation
+## Technologies
+Heroku
+Glidejs
+
 
 
 ## Usage
 For anything sports related and in pickup sports use our site!
 
 ## Credits
-The Team our TAs Esar, Guillermo, Sam Maddox, Harsh and Teacher Sam Maxwell special shout out to tutor Andrew Stiles.
+The Team our TAs Esar, Guillermo, Sam Maddox, Harsh, Eli and Teacher Sam Maxwell special shout out to tutor Andrew Stiles.
 ## License(s)
 
 ## Contribution Info
